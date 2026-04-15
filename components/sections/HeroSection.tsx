@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useEffect, useMemo } from "react";
+import { useRef, useEffect, useMemo, useCallback } from "react";
 import dynamic from "next/dynamic";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
@@ -91,6 +91,12 @@ export default function HeroSection() {
   const btnsRef     = useRef<HTMLDivElement>(null);
   const trustedRef  = useRef<HTMLDivElement>(null);
 
+  const scrollToSection = useCallback((id: string) => {
+    const target = document.getElementById(id);
+    if (!target) return;
+    target.scrollIntoView({ behavior: "smooth", block: "start" });
+  }, []);
+
 
 
   // Entry animation timeline
@@ -118,7 +124,7 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <section className="hero">
+    <section className="hero" id="home">
 
       {/* ── 3D Canvas background ───────────────────────────── */}
       <div className="hero__canvas" aria-hidden="true">
@@ -148,10 +154,20 @@ export default function HeroSection() {
 
         {/* CTAs */}
         <div ref={btnsRef} className="hero__btns">
-          <button className="hero__btn hero__btn--fill" data-cursor="hover">
+          <button
+            type="button"
+            className="hero__btn hero__btn--fill"
+            data-cursor="hover"
+            onClick={() => scrollToSection("contact")}
+          >
             Book a Call
           </button>
-          <button className="hero__btn hero__btn--ghost" data-cursor="hover">
+          <button
+            type="button"
+            className="hero__btn hero__btn--ghost"
+            data-cursor="hover"
+            onClick={() => scrollToSection("work")}
+          >
             View Work
           </button>
         </div>

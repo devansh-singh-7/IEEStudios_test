@@ -10,6 +10,9 @@ export default function Footer() {
   const sectionRef = useRef<HTMLElement>(null);
   const headingRef = useRef<HTMLHeadingElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
+  const handleBookCall = useCallback(() => {
+    window.location.href = "mailto:hello@ieestudios.com?subject=Book%20a%20Call";
+  }, []);
 
   // ─── CTA Scroll Animation ────────────────────────────────────────────────
   useEffect(() => {
@@ -69,18 +72,20 @@ export default function Footer() {
   }, []);
 
   return (
-    <footer ref={sectionRef} className="footer">
+    <footer ref={sectionRef} className="footer" id="contact">
       {/* ── Top Half: Large CTA ── */}
       <div className="footer__cta-wrap">
         <h2 ref={headingRef} className="footer__cta-heading">
           Ready to launch?
         </h2>
         <button
+          type="button"
           ref={buttonRef}
           className="footer__cta-btn"
           data-cursor="hover"
           onMouseMove={handleMouseMove}
           onMouseLeave={handleMouseLeave}
+          onClick={handleBookCall}
         >
           Book a Call
         </button>

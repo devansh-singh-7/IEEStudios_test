@@ -172,7 +172,7 @@ export default function SelectedWork() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="work">
+    <section ref={sectionRef} className="work" id="work">
       
       {/* SECTION ENTRY */}
       <div className="work__entry">
