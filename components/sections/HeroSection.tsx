@@ -86,7 +86,6 @@ const TRUSTED = ["Notion", "Linear", "Vercel", "Raycast", "Loom"];
 export default function HeroSection() {
 
   // GSAP animation targets
-  const badgeRef    = useRef<HTMLDivElement>(null);
   const line1Ref    = useRef<HTMLSpanElement>(null);
   const line2Ref    = useRef<HTMLSpanElement>(null);
   const btnsRef     = useRef<HTMLDivElement>(null);
@@ -97,7 +96,6 @@ export default function HeroSection() {
   // Entry animation timeline
   useEffect(() => {
     const els = [
-      badgeRef.current,
       line1Ref.current,
       line2Ref.current,
       btnsRef.current,
@@ -106,7 +104,7 @@ export default function HeroSection() {
 
     gsap.set(els, { y: 30, opacity: 0, willChange: "transform, opacity" });
 
-    const delays = [0.2, 0.4, 0.55, 0.9, 1.1];
+    const delays = [0.25, 0.45, 0.75, 0.95];
 
     els.forEach((el, i) => {
       gsap.to(el, {
@@ -135,11 +133,6 @@ export default function HeroSection() {
 
       {/* ── HTML overlay ───────────────────────────────────── */}
       <div className="hero__content">
-
-        {/* Badge */}
-        <div ref={badgeRef} className="hero__badge">
-          Award-winning launch films for tech
-        </div>
 
         {/* Headline */}
         <h1 className="hero__h1">
@@ -209,20 +202,6 @@ export default function HeroSection() {
           padding: 0 24px;
           max-width: 860px;
           width: 100%;
-        }
-
-        /* ── Badge ─────────────────────────────────────────── */
-        .hero__badge {
-          display: inline-flex;
-          align-items: center;
-          padding: 6px 18px;
-          border-radius: 9999px;
-          border: 1px solid rgba(255,255,255,0.15);
-          font-size: 12px;
-          font-weight: 500;
-          color: rgba(255,255,255,0.65);
-          letter-spacing: 0.04em;
-          background: rgba(255,255,255,0.03);
         }
 
         /* ── Headline ──────────────────────────────────────── */
