@@ -47,12 +47,7 @@ export default function Navbar() {
       {/* ── Center: Blank now ── */}
       <div className="navbar__center"></div>
 
-      {/* ── Right: CTA ── */}
-      <div className="navbar__actions">
-        <a href="#contact" className="navbar__cta">
-          Start Project
-        </a>
-      </div>
+      <div className="navbar__actions" />
 
       <style>{`
         .navbar {
@@ -96,38 +91,11 @@ export default function Navbar() {
           justify-content: flex-end;
         }
 
-        .navbar__cta {
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          padding: 10px 18px;
-          border-radius: 999px;
-          border: 1px solid rgba(255, 255, 255, 0.26);
-          background: rgba(255, 255, 255, 0.08);
-          color: #ffffff;
-          text-decoration: none;
-          font-size: 13px;
-          font-weight: 600;
-          letter-spacing: 0.03em;
-          transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
-        }
-
-        .navbar__cta:hover {
-          background: rgba(255, 255, 255, 0.18);
-          border-color: rgba(255, 255, 255, 0.42);
-          transform: translateY(-1px);
-        }
-
         /* ── Responsive ── */
         @media (max-width: 900px) {
           .navbar {
             padding: 0 24px;
             height: 64px;
-          }
-
-          .navbar__cta {
-            padding: 8px 14px;
-            font-size: 12px;
           }
         }
       `}</style>
